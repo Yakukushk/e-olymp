@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+long long i,n,k,a[100001],ans;
+int main()
+{
+    scanf("%d%d",&n,&k);
+    for(i=1;i<=n;i++)scanf("%d",&a[i]);
+    sort(a+1,a+n+1);
+    if(a[n]>k)printf("Impossible\n");
+    else{
+        int l=1,r=n;
+        while(l<r){
+            if(a[l]+a[r]<=k){ans++; l++; r--;}
+            else{ans++; r--;}
+        }
+        if(l==r)ans++;
+        printf("%d\n",ans);
+    }
+}
