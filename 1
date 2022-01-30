@@ -1,0 +1,23 @@
+using System;
+
+namespace Problem138
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int cem = 0;
+            int[] a = {500, 200, 100, 50, 20, 10};
+            foreach (var c in a)
+            {
+                int cnt = n/c;
+                n = n - cnt*c;
+                cem = cem + cnt;
+            }
+           
+            if (n == 0) Console.WriteLine(cem);
+            else Console.WriteLine("-1");
+        }
+    }
+}
