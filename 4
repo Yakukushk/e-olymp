@@ -1,0 +1,44 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int get_time(){
+int h,m;
+cin >> h;
+cin.ignore();
+cin >> m;
+cin.ignore();
+return h * 60 + m;
+}
+struct host{
+int from, to;
+host(){
+from = get_time();
+to = get_time();
+}
+};
+int main(){
+int n, m = 0, prev = 0;
+cin >> n;
+host x[n];
+sort(x, x+n, [](const host & x, const host & y){return x.from < y.from;});
+for(int i=1; i< n; i++ ){
+for(int j = prev; j< n; j++){
+if (x[i].from >= x[j].to) {
+
+m++;
+
+prev = i;
+
+break;
+
+}
+
+}
+
+}
+cout << ++m << endl;
+
+return 0;
+}
