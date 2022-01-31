@@ -8,7 +8,7 @@ using namespace std;
 int countWords(char* speech)
 {
     int wordCount = 0;
-    char delim[] = " ,.!?:;-\"\'";
+    char delim[];
     char* pointer = a(speech, delim);
     while (pointer != NULL)
     {
